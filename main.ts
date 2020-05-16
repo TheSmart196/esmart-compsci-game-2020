@@ -420,7 +420,7 @@ f f f f f f f f f f f f f f f f
         mySprite.setPosition(Math.randomRange(10, 150), 120)
         mySprite.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
         mySprite.setFlag(SpriteFlag.BounceOnWall, true)
-        mySprite.lifespan = -110000 / projectile_velocity
+        mySprite.lifespan = -108000 / projectile_velocity
         info.changeScoreBy(1)
     }
 })
@@ -447,7 +447,7 @@ f f f f f f f f f f f f f f f f
         ledge_1.setPosition(Math.randomRange(10, 150), 120)
         ledge_1.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
         ledge_1.setFlag(SpriteFlag.BounceOnWall, true)
-        ledge_1.lifespan = -110000 / projectile_velocity
+        ledge_1.lifespan = -108000 / projectile_velocity
         info.changeScoreBy(1)
     }
 })
