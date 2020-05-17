@@ -368,10 +368,12 @@ hack = 0
 let one = 1
 let two = 2
 let three = 3
+let music_speed = 100
 game.onUpdateInterval(2000, function () {
     projectile_velocity += -2
     projectile_frequency += -100
     clothes_move += -0.1 * clothes_move
+    music_speed += 2
 })
 game.onUpdate(function () {
     if (hack == hack_comparer) {
@@ -399,7 +401,7 @@ game.onUpdate(function () {
 })
 game.onUpdateInterval(1.5 * projectile_frequency, function () {
     if (info.score() >= 20) {
-        mySprite = sprites.create(img`
+        ledge_1 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -417,10 +419,10 @@ f 2 2 2 2 2 2 2 2 2 2 2 2 2 2 f
 f 2 2 2 2 2 2 2 2 2 2 2 2 2 2 f 
 f f f f f f f f f f f f f f f f 
 `, SpriteKind.Projectile)
-        mySprite.setPosition(Math.randomRange(10, 150), 120)
-        mySprite.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
-        mySprite.setFlag(SpriteFlag.BounceOnWall, true)
-        mySprite.lifespan = -108000 / projectile_velocity
+        ledge_1.setPosition(Math.randomRange(10, 150), 120)
+        ledge_1.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
+        ledge_1.setFlag(SpriteFlag.BounceOnWall, true)
+        ledge_1.lifespan = -107000 / projectile_velocity
         info.changeScoreBy(1)
     }
 })
@@ -447,7 +449,7 @@ f f f f f f f f f f f f f f f f
         ledge_1.setPosition(Math.randomRange(10, 150), 120)
         ledge_1.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
         ledge_1.setFlag(SpriteFlag.BounceOnWall, true)
-        ledge_1.lifespan = -108000 / projectile_velocity
+        ledge_1.lifespan = -107000 / projectile_velocity
         info.changeScoreBy(1)
     }
 })
@@ -474,17 +476,17 @@ f f f f f f f f f f f f f f f f
         ledge2.setPosition(Math.randomRange(10, 150), 120)
         ledge2.setVelocity(Math.randomRange(-90, 90), projectile_velocity)
         ledge2.setFlag(SpriteFlag.BounceOnWall, true)
-        ledge2.lifespan = -110000 / projectile_velocity
+        ledge2.lifespan = -107000 / projectile_velocity
         info.changeScoreBy(1)
     }
 })
 forever(function () {
-    music.playMelody("A F G E F D E C ", 120)
-    music.playMelody("F G B A F D D E ", 120)
+    music.playMelody("A F G E F D E C ", music_speed)
+    music.playMelody("F G B A F D D E ", music_speed)
 })
 forever(function () {
-    music.playMelody("C5 A B G A F G E ", 120)
-    music.playMelody("D E G F A G G B ", 120)
+    music.playMelody("C5 A B G A F G E ", music_speed)
+    music.playMelody("D E G F A G G B ", music_speed)
 })
 forever(function () {
     police_person.setImage(img`
@@ -800,7 +802,6 @@ forever(function () {
     cloud.setPosition(Math.randomRange(50, 110), 120)
     cloud.setVelocity(Math.randomRange(-10, 10), projectile_velocity)
     cloud.setFlag(SpriteFlag.Ghost, true)
-    cloud.lifespan = -110000 / projectile_velocity
     cloud.z = -1
     pause(1000)
     cloud_2 = sprites.create(img`
@@ -908,7 +909,6 @@ forever(function () {
     cloud_2.setPosition(Math.randomRange(50, 110), 120)
     cloud_2.setVelocity(Math.randomRange(-10, 10), projectile_velocity)
     cloud_2.setFlag(SpriteFlag.Ghost, true)
-    cloud_2.lifespan = -110000 / projectile_velocity
     cloud_2.z = -1
     pause(1000)
     cloud_3 = sprites.create(img`
@@ -1016,7 +1016,6 @@ forever(function () {
     cloud_3.setPosition(Math.randomRange(50, 110), 120)
     cloud_3.setVelocity(Math.randomRange(-10, 10), projectile_velocity)
     cloud_3.setFlag(SpriteFlag.Ghost, true)
-    cloud_3.lifespan = -110000 / projectile_velocity
     cloud_3.z = -1
     pause(1000)
 })
